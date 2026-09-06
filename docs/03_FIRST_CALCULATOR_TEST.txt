@@ -1,0 +1,37 @@
+03 — FIRST END-TO-END CALCULATOR TEST
+=====================================
+
+GOAL
+----
+Prove all 4 parts independently:
+
+1. Calculator can run an Ndless app.
+2. Calculator app can write request.tns.
+3. Windows bridge can turn request.tns into response.tns.
+4. Calculator app can read/display response.tns.
+
+TEST
+----
+1. Launch NspireAI on calculator.
+2. Type:
+     explain what velocity means
+3. The calculator creates request.tns.
+4. Open WebTILP on Windows in Chrome/Edge.
+5. Receive/download request.tns from the calculator.
+6. Place it at:
+     host\exchange\request.tns
+7. Run:
+     host\RUN_ONCE.bat
+8. Confirm:
+     host\exchange\response.tns
+   appears.
+9. Use WebTILP to send response.tns back into the calculator's NspireAI folder.
+10. Press ENTER on calculator.
+11. The answer should display.
+
+USE MOCK FIRST
+--------------
+Keep provider=mock for the first calculator test.
+That means if anything fails, the problem is file transfer/UI—not the AI API.
+
+Only switch to OpenAI/Ollama once the mock response appears on the calculator.

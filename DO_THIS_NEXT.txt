@@ -1,0 +1,22 @@
+NSPIRE AI v0.2 — DO THIS NEXT
+=============================
+
+YOU ALREADY HAVE:
+- TI-Nspire CX II-T non-CAS
+- OS 6.4.0.74
+- Ndless successfully installed
+- Windows Python bridge working
+
+NOW:
+1. Get a Gemini API key from Google AI Studio.
+2. Open host\SET_GEMINI_KEY.bat
+3. Paste the key.
+4. It will automatically test Gemini.
+5. If you get a real AI answer, the AI side is DONE.
+
+Calculator app:
+- calculator\main.c is the Ndless client source.
+- It writes request.tns and reads response.tns.
+- It still needs compilation with the Ndless ARM SDK/toolchain to become
+  nspire_ai.tns.
+- Do not rename random files to .tns; that is not a valid executable.

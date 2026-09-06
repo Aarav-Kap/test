@@ -1,0 +1,47 @@
+NSPIRE AI v0.1 — START HERE
+===========================
+
+Target calculator:
+  TI-Nspire CX II-T (non-CAS)
+  OS: 6.4.0.74
+  Homebrew: Ndless r2022
+
+WHAT THIS ZIP DOES
+------------------
+This is the first working vertical slice of the project:
+
+  Calculator UI -> request.tns -> Windows AI bridge -> response.tns -> Calculator UI
+
+For v0.1, request.tns/response.tns are transferred manually with WebTILP.
+That intentionally keeps the first test simple. Once this works, the next step
+is replacing the manual transfer with automatic USB file transfer.
+
+IMPORTANT
+---------
+- Do NOT flash Boot2, NAND, nLoader, or random firmware.
+- Do NOT install "stealth" exam-mode bypasses.
+- This project is for normal/homebrew use, not bypassing exam restrictions.
+- Only use Ndless r2022 with OS 6.4.0.74 for this setup.
+- Back up any calculator documents you care about.
+
+WINDOWS CHECKLIST
+-----------------
+1. Confirm calculator now says OS 6.4.0.74.
+2. Install Ndless r2022.
+3. Install/transfer the NspireAI calculator program (see calculator/README.md).
+4. On Windows, install Python 3.11+.
+5. Double-click host\FIRST_TEST.bat.
+6. Once the PC test works, configure either:
+      - OpenAI API, or
+      - Ollama local model.
+7. Use WebTILP in Chrome/Edge to transfer request.tns and response.tns.
+
+Read:
+  docs\01_INSTALL_NDLESS.md
+  docs\02_WINDOWS_AI_SETUP.md
+  docs\03_FIRST_CALCULATOR_TEST.md
+  docs\04_AUTOMATIC_USB_NEXT.md
+
+The calculator-side .tns executable is NOT precompiled in this ZIP because it
+must be built against the current Ndless SDK/toolchain. The C source + Makefile
+are included, with a WSL build path documented in calculator/README.md.

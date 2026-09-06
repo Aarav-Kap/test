@@ -1,0 +1,43 @@
+NSPIREAI v0.4 — NO LINUX / NO DOCKER ON YOUR PC
+=================================================
+
+This version compiles nspire_ai.tns in GitHub's cloud.
+
+BUILD THE .TNS:
+1. Make a free GitHub account if you do not have one.
+2. Create a new EMPTY repository.
+3. Upload ALL contents of this folder to the repository.
+   IMPORTANT: upload the hidden .github folder too.
+4. Open the repository's Actions tab.
+5. Open "Build NspireAI TNS".
+6. If it did not start automatically, click "Run workflow".
+7. Wait for the green check.
+8. Open the completed workflow run.
+9. Under Artifacts, download "nspire_ai_tns".
+10. Unzip it. Inside is nspire_ai.tns.
+
+PUT IT ON CALCULATOR:
+1. In WebTILP, make /NspireAI in My Documents.
+2. Upload nspire_ai.tns into /NspireAI.
+3. Open it on the calculator.
+
+FIRST CHAT TEST:
+1. NspireAI asks for a prompt.
+2. It creates request.tns in the same calculator folder.
+3. Download request.tns with WebTILP into:
+      host\exchange\request.tns
+4. Keep the Gemini key set in a Command Prompt and run:
+      host\RUN_ONCE.bat
+5. host\exchange\response.tns appears.
+6. Upload response.tns back into the calculator's /NspireAI folder.
+7. Press OK on the calculator.
+8. Gemini's answer appears.
+
+NEXT VERSION:
+Automate request.tns/response.tns transfer over USB so there is no manual
+WebTILP file swapping.
+
+WHY CLOUD BUILD:
+The official Rust/cargo-ndless route still requires an Ndless ARM toolchain and
+is documented for Unix-like environments (Cygwin/WSL). GitHub Actions avoids
+all of that on your Windows machine.

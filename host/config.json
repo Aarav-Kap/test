@@ -1,0 +1,12 @@
+{
+  "provider": "gemini",
+  "openai_model": "gpt-5.6-luna",
+  "ollama_url": "http://127.0.0.1:11434",
+  "ollama_model": "qwen3:4b",
+  "max_output_tokens": 450,
+  "ollama_num_predict": 450,
+  "system_prompt": "You are a concise IB Math AA HL and Physics HL tutor displayed on a TI-Nspire CX II-T calculator. Explain steps clearly. Use plain-text math, short paragraphs, no tables, and keep answers compact.",
+  "gemini_model": "gemini-3.6-flash",
+  "gemini_max_output_tokens": 450,
+  "gemini_temperature": 0.4
+}
