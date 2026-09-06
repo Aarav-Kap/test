@@ -26,3 +26,7 @@ Do not change drivers unless needed; test the bridge first.
 v0.5.1 build fix:
 The Windows GitHub runner now installs libusb through vcpkg and statically links it,
 instead of using the old libusb1-sys vendored extraction path that failed on Windows.
+
+
+v0.5.2 build fix:
+Adds the vcpkg libusb include and library paths explicitly so libnspire-sys can find libusb.h on the Windows GitHub runner.

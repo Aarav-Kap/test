@@ -44,7 +44,12 @@ jobs:
         env:
           VCPKG_ROOT: C:\\vcpkg
           VCPKGRS_TRIPLET: x64-windows-static
-        run: cargo build --release
+          INCLUDE: C:\\vcpkg\\installed\\x64-windows-static\\include\\libusb-1.0
+          LIB: C:\\vcpkg\\installed\\x64-windows-static\\lib
+        run: |
+          Write-Host "Checking libusb header..."
+          Get-Item "C:\\vcpkg\\installed\\x64-windows-static\\include\\libusb-1.0\\libusb.h"
+          cargo build --release
       - name: Stage
         shell: powershell
         run: |
