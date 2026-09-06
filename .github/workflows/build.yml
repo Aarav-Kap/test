@@ -1,4 +1,4 @@
-name: Build NspireAI v0.5
+name: Build NspireAI v0.6
 
 on:
   workflow_dispatch:
@@ -32,24 +32,25 @@ jobs:
       - name: Install libusb with vcpkg
         shell: powershell
         run: |
-          if (-not (Test-Path "C:\\vcpkg\\vcpkg.exe")) {
-            git clone https://github.com/microsoft/vcpkg C:\\vcpkg
-            & C:\\vcpkg\\bootstrap-vcpkg.bat -disableMetrics
+          if (-not (Test-Path "C:\vcpkg\vcpkg.exe")) {
+            git clone https://github.com/microsoft/vcpkg C:\vcpkg
+            & C:\vcpkg\bootstrap-vcpkg.bat -disableMetrics
           }
-          & C:\\vcpkg\\vcpkg.exe install libusb:x64-windows-static
+          & C:\vcpkg\vcpkg.exe install libusb:x64-windows-static
 
       - name: Build Windows bridge
         working-directory: host
         shell: powershell
         env:
-          VCPKG_ROOT: C:\\vcpkg
+          VCPKG_ROOT: C:\vcpkg
           VCPKGRS_TRIPLET: x64-windows-static
-          INCLUDE: C:\\vcpkg\\installed\\x64-windows-static\\include\\libusb-1.0
-          LIB: C:\\vcpkg\\installed\\x64-windows-static\\lib
+          INCLUDE: C:\vcpkg\installed\x64-windows-static\include\libusb-1.0
+          LIB: C:\vcpkg\installed\x64-windows-static\lib
         run: |
           Write-Host "Checking libusb header..."
-          Get-Item "C:\\vcpkg\\installed\\x64-windows-static\\include\\libusb-1.0\\libusb.h"
+          Get-Item "C:\vcpkg\installed\x64-windows-static\include\libusb-1.0\libusb.h"
           cargo build --release
+
       - name: Stage
         shell: powershell
         run: |

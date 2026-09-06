@@ -1,0 +1,6 @@
+Quick plan
+----------
+- Put this whole package into the repo.
+- Build again in GitHub Actions.
+- Replace the old calculator app with the new one.
+- Use the new windows-bridge artifact, not the old one.

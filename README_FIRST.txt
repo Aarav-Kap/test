@@ -1,32 +1,29 @@
-NspireAI v0.5 = AUTOMATIC USB + FULL-SCREEN UI
+NspireAI v0.6
+=============
 
-Once built:
-- calculator artifact -> nspire_ai.tns
-- windows-bridge artifact -> nspire-ai-bridge.exe + SET_KEY_AND_RUN.bat
+What changed
+------------
+- Better chat-style UI on the calculator.
+- Uses persistent mailbox files: uplink.tns and downlink.tns.
+- No WebTILP file shuffling during normal use.
+- The answer appears in the same screen.
+- The Windows bridge writes "thinking" first, then progressively fills the answer.
 
-Usage:
-1. Replace your old nspire_ai.tns with the new v0.5 one in /NspireAI.
-2. On Windows, unzip windows-bridge.
-3. Double-click SET_KEY_AND_RUN.bat and paste your Gemini API key.
-4. Leave that window open.
-5. Plug calculator in by USB.
-6. Open NspireAI.
-7. Type directly in the full-screen UI and press Enter.
-8. The PC automatically reads request.tns, calls Gemini, writes response.tns.
-9. The calculator polls response.tns and displays it automatically.
-No WebTILP transfers during normal use.
+How to use
+----------
+1. Replace your repo contents with this ZIP's contents.
+2. Commit and push.
+3. Run the GitHub Action "Build NspireAI v0.6".
+4. Download BOTH artifacts:
+   - calculator
+   - windows-bridge
+5. Replace the calculator's old nspire_ai.tns with the new one.
+6. Extract windows-bridge on Windows.
+7. Run SET_KEY_AND_RUN.bat and paste a NEW Gemini key.
+8. Plug in the calculator and open NspireAI.
+9. Type in the built-in UI and press Enter.
 
-Note:
-Native USB access on Windows depends on the calculator being accessible through
-libusb/WinUSB. If the bridge says it cannot initialize USB even though WebTILP
-works, Windows may need a WinUSB/libusb driver binding for the calculator.
-Do not change drivers unless needed; test the bridge first.
-
-
-v0.5.1 build fix:
-The Windows GitHub runner now installs libusb through vcpkg and statically links it,
-instead of using the old libusb1-sys vendored extraction path that failed on Windows.
-
-
-v0.5.2 build fix:
-Adds the vcpkg libusb include and library paths explicitly so libnspire-sys can find libusb.h on the Windows GitHub runner.
+Notes
+-----
+- This version still uses TI's normal file-transport under the hood, but it is hidden.
+- If the bridge prints "Calculator connected." but never "Prompt: ...", the calculator app is likely not in the /NspireAI folder. Keep nspire_ai.tns in a folder named exactly NspireAI.

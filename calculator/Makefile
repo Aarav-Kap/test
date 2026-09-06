@@ -3,7 +3,7 @@ LD=nspire-ld
 GENZEHN=genzehn
 GCCFLAGS=-Wall -Wextra -Wno-unused-parameter -marm -Os
 LDFLAGS=-Wl,--gc-sections
-ZEHNFLAGS=--name "NspireAI" --author "NspireAI" --notice "Gemini USB frontend" --ndless-min 36 --240x320-support true
+ZEHNFLAGS=--name "NspireAI" --author "NspireAI" --notice "Smooth Gemini chat" --ndless-min 36 --240x320-support true
 OBJS=main.o
 DISTDIR?=../dist
 all: $(DISTDIR)/nspire_ai.tns
