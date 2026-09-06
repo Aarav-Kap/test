@@ -28,8 +28,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install libusb with vcpkg
+        shell: powershell
+        run: |
+          if (-not (Test-Path "C:\\vcpkg\\vcpkg.exe")) {
+            git clone https://github.com/microsoft/vcpkg C:\\vcpkg
+            & C:\\vcpkg\\bootstrap-vcpkg.bat -disableMetrics
+          }
+          & C:\\vcpkg\\vcpkg.exe install libusb:x64-windows-static
+
       - name: Build Windows bridge
         working-directory: host
+        shell: powershell
+        env:
+          VCPKG_ROOT: C:\\vcpkg
+          VCPKGRS_TRIPLET: x64-windows-static
         run: cargo build --release
       - name: Stage
         shell: powershell

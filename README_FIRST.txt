@@ -21,3 +21,8 @@ Native USB access on Windows depends on the calculator being accessible through
 libusb/WinUSB. If the bridge says it cannot initialize USB even though WebTILP
 works, Windows may need a WinUSB/libusb driver binding for the calculator.
 Do not change drivers unless needed; test the bridge first.
+
+
+v0.5.1 build fix:
+The Windows GitHub runner now installs libusb through vcpkg and statically links it,
+instead of using the old libusb1-sys vendored extraction path that failed on Windows.
